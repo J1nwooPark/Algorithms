@@ -13,7 +13,4 @@ void InsertionSort(int arr[], int size)
 		}
 		arr[j + 1] = cur;
 	}
-	for (int i = 0; i < size; i++)
-		cout << arr[i] << " ";
-	cout << endl;
 }
