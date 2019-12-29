@@ -7,4 +7,5 @@ void BucketSort(int arr[], int size, int range)
 	for (int i = 0; i < range; i++)
 		if (bucket_array[i])
 			arr[arr_idx++] = i;
+	delete[] bucket_array;
 }
