@@ -1,4 +1,5 @@
 #include <algorithm>
+using namespace std;
 void QuickSort_inplace(int arr[], int start, int end)
 {
 	if (start >= end) return;
@@ -9,7 +10,7 @@ void QuickSort_inplace(int arr[], int start, int end)
 		while (left <= right && arr[left] <= pivot) left++;
 		while (right >= left && arr[right] >= pivot) right--;
 		if (left < right)
-			std::swap(&arr[left], &arr[right]);
+			swap(&arr[left], &arr[right]);
 	}
 	swap(&arr[left], &arr[end]);
 	QuickSort_inplace(arr, start, left - 1);
