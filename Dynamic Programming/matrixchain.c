@@ -1,4 +1,5 @@
 #include <algorithm>
+using namespace std;
 void MatrixChain(int min_multiple[][/*matrix_num/*], int matrix_rowcols[], int matrix_num)
 {
 	for (int i = 0; i < matrix_num; i++)
@@ -9,7 +10,7 @@ void MatrixChain(int min_multiple[][/*matrix_num/*], int matrix_rowcols[], int m
 		{
 			min_multiple[j][j + i] = 987654321;
 			for (int k = j; k < j + i; k++)
-				min_multiple[j][j + i] = std::min(min_multiple[j][j + i], min_multiple[j][k] + min_multiple[k + 1][j + i] + matrix_rowcols[j] * matrix_rowcols[k + 1] * matrix_rowcols[j + i + 1]);
+				min_multiple[j][j + i] = min(min_multiple[j][j + i], min_multiple[j][k] + min_multiple[k + 1][j + i] + matrix_rowcols[j] * matrix_rowcols[k + 1] * matrix_rowcols[j + i + 1]);
 		}
 	}
 }
