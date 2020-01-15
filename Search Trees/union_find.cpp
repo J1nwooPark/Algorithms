@@ -1,23 +1,29 @@
-int parent[ITEM_NUM];
+int parent[ITEM_NUM], _size[ITEM_NUM];
 
-int Find(int x)
+int Root(int x)
 {
-    if (parent[x] == x) return x;
-    else
-    {
-        int y = Find(parent[x]);
-        return y;
-    }
+	if (x == parent[x]) return x;
+	else return parent[x] = Root(parent[x]);
 }
 void Union(int x, int y)
 {
-     x = Find(x);
-     y = Find(y);
-     parent[y] = x;
+	x = Root(x); y = Root(y);
+	if (_size[x] > _size[y])
+	{
+		parent[y] = x;
+		_size[x] += _size[y];
+	}
+	else
+	{
+		parent[x] = y;
+		_size[y] += _size[x];
+	}
 }
-
 int main()
 {
     for (int i = 0; i < ITEM_NUM; i++)
+    {
         parent[i] = i;
+        _size[i] = 1;
+    }
 }
